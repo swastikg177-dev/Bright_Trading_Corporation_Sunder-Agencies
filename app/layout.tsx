@@ -8,29 +8,29 @@ const siteUrl = "https://bright-trading-corporation.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Bright Traders | Sunder Agencies",
+  title: "Bright Traders | Sundar Agencies",
   description:
-    "Bright Traders | Sunder Agencies is a trusted electronics and electrical shop in Burhar, Madhya Pradesh offering appliances, lighting, wires, switches, and daily utility products.",
+    "Bright Traders | Sundar Agencies is a trusted electronics and electrical shop in Burhar, Madhya Pradesh offering appliances, lighting, wires, switches, and daily utility products.",
   keywords: [
     "electronics shop Burhar",
     "electrical shop Burhar",
     "Bright Traders",
-    "Sunder Agencies",
+    "Sundar Agencies",
     "home appliances Burhar",
     "electronics store Madhya Pradesh",
   ],
   openGraph: {
-    title: "Bright Traders | Sunder Agencies",
+    title: "Bright Traders | Sundar Agencies",
     description:
       "Trusted electronics and electrical store in Burhar for appliances, electrical supplies, lighting, switches, and more.",
     url: siteUrl,
-    siteName: "Bright Traders | Sunder Agencies",
+    siteName: "Bright Traders | Sundar Agencies",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bright Traders | Sunder Agencies",
+    title: "Bright Traders | Sundar Agencies",
     description:
       "Premium electronics and electrical retail experience in Burhar, Madhya Pradesh.",
   },

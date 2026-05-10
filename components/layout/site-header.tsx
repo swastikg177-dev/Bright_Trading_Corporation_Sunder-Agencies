@@ -23,8 +23,9 @@ export function SiteHeader() {
             BT
           </div>
           <div className="hidden sm:block">
-            <p className="font-display text-sm font-semibold tracking-[0.22em] text-primary">BRIGHT TRADING</p>
-            <p className="text-sm text-muted-foreground">Sunder Agencies</p>
+            <p className="font-display text-sm font-semibold tracking-[0.14em] text-primary">
+              BRIGHT TRADERS | SUNDAR AGENCIES
+            </p>
           </div>
         </Link>
 
@@ -81,7 +82,6 @@ export function SiteHeader() {
             <div className="mt-12 flex flex-col gap-8">
               <div>
                 <p className="font-display text-lg font-semibold text-white">{businessInfo.shortName}</p>
-                <p className="text-sm text-white/60">Sunder Agencies</p>
               </div>
               <div className="flex flex-col gap-4">
                 {navItems.map((item) => (

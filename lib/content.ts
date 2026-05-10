@@ -10,17 +10,17 @@ export type GalleryItem = {
 };
 
 export const businessInfo = {
-  name: "Bright Trading Corporation | Sunder Agencies",
-  shortName: "Bright Trading Corporation",
+  name: "Bright Traders | Sundar Agencies",
+  shortName: "Bright Traders | Sundar Agencies",
   phoneDisplay: "+91 8973419111",
   phoneLink: "tel:+918973419111",
   whatsappLink: "https://wa.me/918973419111",
   email: "Sanjaykdodwani@gmail.com",
   emailLink: "mailto:Sanjaykdodwani@gmail.com",
   address: "Lakheran Tola, Burhar, Madhya Pradesh 484110, India",
-  mapsLink: "https://maps.app.goo.gl/jsnpXic2Nc2HJUWW8?g_st=iw",
+  mapsLink: "https://maps.app.goo.gl/fPdb5RaiVnvCGjG56",
   mapsEmbed:
-    "https://maps.app.goo.gl/jsnpXic2Nc2HJUWW8?g_st=iw",
+    "https://www.google.com/maps?q=Lakheran%20Tola%2C%20Burhar%2C%20Madhya%20Pradesh%20484110%2C%20India&z=15&output=embed",
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -112,7 +112,7 @@ export const copy = {
       badge: "Trusted Electronics & Electrical Store in Burhar",
       title: "Premium electronics, dependable electricals, and everyday essentials under one roof.",
       subtitle:
-        "Bright Trading Corporation | Sunder Agencies brings together home appliances, lighting, switches, wires, and trusted electronic products with a polished local buying experience.",
+        "Bright Traders | Sunder Agencies brings together home appliances, lighting, switches, wires, and trusted electronic products with a polished local buying experience.",
       primaryCta: "Call Now",
       secondaryCta: "WhatsApp",
       stats: [
