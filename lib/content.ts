@@ -20,7 +20,7 @@ export const businessInfo = {
   address: "Lakheran Tola, Burhar, Madhya Pradesh 484110, India",
   mapsLink: "https://maps.app.goo.gl/jsnpXic2Nc2HJUWW8?g_st=iw",
   mapsEmbed:
-    "https://www.google.com/maps?q=Lakheran%20Tola%2C%20Burhar%2C%20Madhya%20Pradesh%20484110%2C%20India&z=15&output=embed",
+    "https://maps.app.goo.gl/jsnpXic2Nc2HJUWW8?g_st=iw",
 };
 
 export const galleryItems: GalleryItem[] = [
