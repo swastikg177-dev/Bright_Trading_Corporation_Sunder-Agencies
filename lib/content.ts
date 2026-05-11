@@ -9,12 +9,40 @@ export type GalleryItem = {
   size: "portrait" | "landscape" | "square";
 };
 
+export type ContactNumber = {
+  label: string;
+  display: string;
+  tel: string;
+  whatsapp: string;
+};
+
+export const contactNumbers: ContactNumber[] = [
+  {
+    label: "Primary",
+    display: "+91 8973419111",
+    tel: "tel:+918973419111",
+    whatsapp: "https://wa.me/918973419111",
+  },
+  {
+    label: "Support 1",
+    display: "+91 9826049025",
+    tel: "tel:+919826049025",
+    whatsapp: "https://wa.me/919826049025",
+  },
+  {
+    label: "Support 2",
+    display: "+91 7692001044",
+    tel: "tel:+917692001044",
+    whatsapp: "https://wa.me/917692001044",
+  },
+];
+
 export const businessInfo = {
-  name: "Bright Traders | Sundar Agencies",
-  shortName: "Bright Traders | Sundar Agencies",
-  phoneDisplay: "+91 8973419111",
-  phoneLink: "tel:+918973419111",
-  whatsappLink: "https://wa.me/918973419111",
+  name: "Bright Trading Corporation | Sundar Agencies",
+  shortName: "Bright Trading Corporation",
+  phoneDisplay: contactNumbers[0].display,
+  phoneLink: contactNumbers[0].tel,
+  whatsappLink: contactNumbers[0].whatsapp,
   email: "Sanjaykdodwani@gmail.com",
   emailLink: "mailto:Sanjaykdodwani@gmail.com",
   address: "Lakheran Tola, Burhar, Madhya Pradesh 484110, India",
@@ -109,10 +137,10 @@ export const copy = {
   },
   hero: {
     en: {
-      badge: "Trusted Electronics & Electrical Store in Burhar",
-      title: "Premium electronics, dependable electricals, and everyday essentials under one roof.",
+      badge: "Most Trusted Electronics & Electrical Store in Burhar",
+      title: "Premium electronics, Dependable electricals, and everyday essentials under one roof.",
       subtitle:
-        "Bright Traders | Sunder Agencies brings together home appliances, lighting, switches, wires, and trusted electronic products with a polished local buying experience.",
+        "Bright Trading Corporation | Sundar Agencies brings together home appliances, lighting, switches, wires, and trusted electronic products with a polished local buying experience.",
       primaryCta: "Call Now",
       secondaryCta: "WhatsApp",
       stats: [
@@ -140,7 +168,7 @@ export const copy = {
       eyebrow: "About the Store",
       title: "A modern neighborhood destination for electronics and electrical buying.",
       body:
-        "Serving families, homeowners, and daily shoppers in Burhar, Bright Trading Corporation | Sunder Agencies offers dependable electronics products, electrical supplies, home appliances, wires, switches, lighting products, and daily utility essentials. Built on years of local trust, we focus on trusted guidance, practical pricing, and customer satisfaction that keeps people returning.",
+        "Serving families, homeowners, and daily shoppers in Burhar, Bright Trading Corporation | Sundar Agencies offers dependable electronics products, electrical supplies, home appliances, wires, switches, lighting products, and daily utility essentials. Built on years of local trust, we focus on trusted guidance, practical pricing, and customer satisfaction that keeps people returning.",
       highlights: [
         "Electronics products",
         "Electrical supplies",

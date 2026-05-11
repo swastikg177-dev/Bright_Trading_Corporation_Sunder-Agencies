@@ -27,11 +27,11 @@ export function SiteHeader() {
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="group flex items-center gap-3">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-sm font-semibold text-primary shadow-glow">
-            BT
+            BTC
           </div>
           <div className="hidden sm:block">
             <p className="font-display text-sm font-semibold tracking-[0.14em] text-primary">
-              BRIGHT TRADERS | SUNDAR AGENCIES
+              BRIGHT TRADING CORPORATION | SUNDAR AGENCIES
             </p>
           </div>
         </Link>

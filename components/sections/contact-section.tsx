@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { businessInfo, copy } from "@/lib/content";
+import { businessInfo, contactNumbers, copy } from "@/lib/content";
 
 export function ContactSection() {
   const { locale } = useLanguage();
@@ -25,11 +25,40 @@ export function ContactSection() {
               <Card className="bg-white/6 p-5">
                 <div className="flex items-start gap-4">
                   <Phone className="mt-1 h-5 w-5 text-primary" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">{contact.phone}</p>
-                    <a href={businessInfo.phoneLink} className="font-medium text-foreground transition hover:text-primary">
-                      {businessInfo.phoneDisplay}
-                    </a>
+                  <div className="w-full">
+                    <p className="text-sm text-muted-foreground">{locale === "en" ? "Phone Numbers" : contact.phone}</p>
+                    <div className="mt-3 grid gap-3">
+                      {contactNumbers.map((number) => (
+                        <div
+                          key={number.display}
+                          className="flex flex-col gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+                        >
+                          <div>
+                            <p className="text-xs uppercase tracking-[0.18em] text-primary/80">{number.label}</p>
+                            <a
+                              href={number.tel}
+                              className="mt-1 block font-medium text-foreground transition hover:text-primary"
+                            >
+                              {number.display}
+                            </a>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button asChild variant="secondary" className="h-9 px-4 text-xs">
+                              <a href={number.tel}>
+                                <Phone className="h-3.5 w-3.5" />
+                                {locale === "en" ? "Call" : "कॉल"}
+                              </a>
+                            </Button>
+                            <Button asChild className="h-9 px-4 text-xs">
+                              <a href={number.whatsapp} target="_blank" rel="noreferrer">
+                                <MessageCircleMore className="h-3.5 w-3.5" />
+                                WhatsApp
+                              </a>
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -62,12 +91,16 @@ export function ContactSection() {
               </Card>
             </div>
 
-            <Button asChild size="lg" className="w-full sm:w-auto">
-              <a href={businessInfo.whatsappLink} target="_blank" rel="noreferrer">
-                <MessageCircleMore className="h-4 w-4" />
-                {contact.whatsapp}
-              </a>
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {contactNumbers.map((number) => (
+                <Button asChild size="lg" className="w-full sm:w-auto" key={number.display}>
+                  <a href={number.whatsapp} target="_blank" rel="noreferrer">
+                    <MessageCircleMore className="h-4 w-4" />
+                    {locale === "en" ? `WhatsApp ${number.display}` : `व्हाट्सऐप ${number.display}`}
+                  </a>
+                </Button>
+              ))}
+            </div>
           </div>
         </Reveal>
 

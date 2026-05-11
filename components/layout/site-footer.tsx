@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, MapPin, Phone, MessageCircleMore } from "lucide-react";
+import { Mail, MapPin, MessageCircleMore, Phone } from "lucide-react";
 
-import { businessInfo, copy } from "@/lib/content";
 import { useLanguage } from "@/components/providers/language-provider";
+import { businessInfo, contactNumbers, copy } from "@/lib/content";
 
 export function SiteFooter() {
   const { locale } = useLanguage();
@@ -17,7 +17,7 @@ export function SiteFooter() {
         <div className="space-y-5">
           <div>
             <p className="font-display text-2xl font-semibold">{businessInfo.shortName}</p>
-            <p className="text-sm text-white/60">Sunder Agencies</p>
+            <p className="text-sm text-white/60">Sundar Agencies</p>
           </div>
           <p className="max-w-xl text-sm leading-7 text-white/70">{footer.description}</p>
         </div>
@@ -34,14 +34,17 @@ export function SiteFooter() {
         </div>
 
         <div className="space-y-4 text-sm text-white/70">
-          <a href={businessInfo.phoneLink} className="flex items-start gap-3 transition hover:text-white">
-            <Phone className="mt-0.5 h-4 w-4" />
-            <span>{businessInfo.phoneDisplay}</span>
-          </a>
-          <a href={businessInfo.whatsappLink} className="flex items-start gap-3 transition hover:text-white">
-            <MessageCircleMore className="mt-0.5 h-4 w-4" />
-            <span>WhatsApp</span>
-          </a>
+          {contactNumbers.map((number) => (
+            <div key={number.display} className="flex items-start justify-between gap-4">
+              <a href={number.tel} className="flex items-start gap-3 transition hover:text-white">
+                <Phone className="mt-0.5 h-4 w-4" />
+                <span>{number.display}</span>
+              </a>
+              <a href={number.whatsapp} target="_blank" rel="noreferrer" className="transition hover:text-white">
+                <MessageCircleMore className="h-4 w-4" />
+              </a>
+            </div>
+          ))}
           <a href={businessInfo.emailLink} className="flex items-start gap-3 transition hover:text-white">
             <Mail className="mt-0.5 h-4 w-4" />
             <span>{businessInfo.email}</span>
