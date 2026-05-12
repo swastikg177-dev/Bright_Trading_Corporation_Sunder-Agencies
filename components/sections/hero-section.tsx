@@ -5,13 +5,66 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageCircleMore, PhoneCall, Sparkles, Zap } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
+import { productCategories } from "@/lib/catalog";
+import { businessInfo, copy } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { businessInfo, copy } from "@/lib/content";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
+type FeaturedCategory = {
+  id: string;
+  title: { en: string; hi: string };
+  description: { en: string; hi: string };
+  items: string[];
+};
 
 export function HeroSection() {
   const { locale } = useLanguage();
   const hero = copy.hero[locale];
+
+  const getCategory = (id: string) => productCategories.find((category) => category.id === id);
+
+  const homeAppliances = getCategory("home-appliances");
+  const lightingProducts = getCategory("lighting-products");
+  const switchesAccessories = getCategory("switches-accessories");
+  const commonElectrical = getCategory("common-electrical-appliances");
+  const wiringAccessories = getCategory("wiring-accessories");
+  const furniture = getCategory("furniture");
+
+  const featuredCategories = [
+    homeAppliances && {
+      id: "home-appliances",
+      title: { en: "Home Appliances", hi: "होम अप्लायंसेस" },
+      description: homeAppliances.description,
+      items: homeAppliances.items,
+    },
+    lightingProducts &&
+      switchesAccessories && {
+        id: "lighting-switches",
+        title: { en: "Lighting & Switches", hi: "लाइटिंग और स्विचेस" },
+        description: {
+          en: "Lighting products, modular switches, sockets, regulators, and fitting accessories.",
+          hi: "लाइटिंग प्रोडक्ट्स, मॉड्यूलर स्विचेस, सॉकेट, रेगुलेटर और फिटिंग एक्सेसरीज़।",
+        },
+        items: [...lightingProducts.items, ...switchesAccessories.items],
+      },
+    commonElectrical &&
+      wiringAccessories && {
+        id: "wires-electrical-supplies",
+        title: { en: "Wires & Electrical Supplies", hi: "वायर्स और इलेक्ट्रिकल सप्लाई" },
+        description: {
+          en: "Wires, cables, conduits, backup essentials, and practical electrical utility products.",
+          hi: "वायर, केबल, कंड्युट, पावर बैकअप और रोज़मर्रा की इलेक्ट्रिकल यूटिलिटी वस्तुएँ।",
+        },
+        items: [...wiringAccessories.items, ...commonElectrical.items],
+      },
+    furniture && {
+      id: "furniture",
+      title: furniture.title,
+      description: furniture.description,
+      items: furniture.items,
+    },
+  ].filter(Boolean) as FeaturedCategory[];
 
   return (
     <section id="home" className="relative overflow-hidden">
@@ -112,21 +165,42 @@ export function HeroSection() {
                 </div>
 
                 <div className="mt-8 grid gap-4">
-                  {[
-                    locale === "en" ? "Home Appliances" : "होम अप्लायंसेस",
-                    locale === "en" ? "Lighting & Switches" : "लाइटिंग और स्विचेस",
-                    locale === "en" ? "Wires & Electrical Supplies" : "वायर और इलेक्ट्रिकल सप्लाई",
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item}
-                      initial={{ opacity: 0, x: 18 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 + index * 0.08 }}
-                      className="flex items-center justify-between rounded-[22px] border border-white/10 bg-slate-950/45 px-5 py-4"
-                    >
-                      <span className="font-medium text-foreground">{item}</span>
-                      <ArrowRight className="h-4 w-4 text-primary" />
-                    </motion.div>
+                  {featuredCategories.map((category, index) => (
+                    <Dialog key={category.id}>
+                      <DialogTrigger asChild>
+                        <motion.button
+                          type="button"
+                          initial={{ opacity: 0, x: 18 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 + index * 0.08 }}
+                          className="flex items-center justify-between rounded-[22px] border border-white/10 bg-slate-950/45 px-5 py-4 text-left transition hover:border-primary/25 hover:bg-slate-950/65"
+                        >
+                          <span className="font-medium text-foreground">{category.title[locale]}</span>
+                          <ArrowRight className="h-4 w-4 text-primary" />
+                        </motion.button>
+                      </DialogTrigger>
+                      <DialogContent className="max-h-[85vh] max-w-3xl p-6 sm:p-8">
+                        <div className="flex max-h-[calc(85vh-3rem)] flex-col space-y-5">
+                          <div>
+                            <p className="text-sm uppercase tracking-[0.22em] text-primary">
+                              {locale === "en" ? "Category Details" : "कैटेगरी डिटेल्स"}
+                            </p>
+                            <DialogTitle className="mt-3">{category.title[locale]}</DialogTitle>
+                            <DialogDescription className="mt-3">{category.description[locale]}</DialogDescription>
+                          </div>
+                          <div className="grid max-h-[50vh] gap-3 overflow-y-auto pr-2 sm:grid-cols-2">
+                            {category.items.map((item) => (
+                              <div
+                                key={item}
+                                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85"
+                              >
+                                {item}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
                   ))}
                 </div>
 

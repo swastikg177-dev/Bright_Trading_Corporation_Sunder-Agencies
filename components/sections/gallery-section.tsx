@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Expand } from "lucide-react";
 
 import { useLanguage } from "@/components/providers/language-provider";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { copy, galleryItems } from "@/lib/content";
@@ -51,6 +51,7 @@ export function GallerySection() {
                   </button>
                 </DialogTrigger>
                 <DialogContent className="overflow-hidden p-2">
+                  <DialogTitle className="sr-only">{item.alt[locale]}</DialogTitle>
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[22px]">
                     <Image
                       src={item.src}

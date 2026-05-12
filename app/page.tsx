@@ -2,7 +2,9 @@ import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { AboutSection } from "@/components/sections/about-section";
+import { BrandsSection } from "@/components/sections/brands-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { FurnitureSection } from "@/components/sections/furniture-section";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us-section";
@@ -40,6 +42,8 @@ export default function HomePage() {
           <HeroSection />
           <AboutSection />
           <GallerySection />
+          <FurnitureSection />
+          <BrandsSection />
           <WhyChooseUsSection />
           <ContactSection />
         </main>

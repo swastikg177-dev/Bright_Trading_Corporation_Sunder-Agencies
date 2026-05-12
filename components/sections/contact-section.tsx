@@ -5,6 +5,7 @@ import { ArrowUpRight, Mail, MapPin, MessageCircleMore, Phone } from "lucide-rea
 import { useLanguage } from "@/components/providers/language-provider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { EnquiryDialog } from "@/components/ui/enquiry-dialog";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { businessInfo, contactNumbers, copy } from "@/lib/content";
@@ -91,16 +92,15 @@ export function ContactSection() {
               </Card>
             </div>
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              {contactNumbers.map((number) => (
-                <Button asChild size="lg" className="w-full sm:w-auto" key={number.display}>
-                  <a href={number.whatsapp} target="_blank" rel="noreferrer">
-                    <MessageCircleMore className="h-4 w-4" />
-                    {locale === "en" ? `WhatsApp ${number.display}` : `व्हाट्सऐप ${number.display}`}
-                  </a>
+            <EnquiryDialog
+              locale={locale}
+              trigger={
+                <Button size="lg" className="w-full sm:w-auto">
+                  <MessageCircleMore className="h-4 w-4" />
+                  {locale === "en" ? "Order / Enquire Now" : "ऑर्डर / पूछताछ करें"}
                 </Button>
-              ))}
-            </div>
+              }
+            />
           </div>
         </Reveal>
 
